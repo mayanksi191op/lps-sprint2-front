@@ -1,0 +1,65 @@
+
+
+   <!-- style="background-color: burlywood;" style="background-image: url(https://cdn.pixabay.com/photo/2016/11/29/08/41/apple-1868496_960_720.jpg); background-size: cover; background-position: center;" -->
+   <div >
+   <div class="card-group ">
+   <div class="card mb-1 col-md-3 offset-3 mt-2 border-0">
+     
+    <img class="card-img-top" src="https://cdn.pixabay.com/photo/2019/05/22/17/01/desk-4222025__340.jpg" height="450" alt="Card image cap">
+  </div>
+
+
+
+  <div class="col-md-3 mt-2" >
+    <div class="alert alert-success"  *ngIf = 'falsemessage'><small class="font-italic font-weight-normal">{{falsemessage}}</small></div>
+    <div class="alert alert-danger"  *ngIf = 'truemessage'><small class="font-italic font-weight-normal" style="font-size: larger;">{{truemessage}}</small></div>
+    <div class="card mt-3 mx-auto border-0" style="background-color: transparent"><br><br>
+      <div class="card-header text-center" style="background-color:rgb(86, 86, 156);"><h5><strong style="color: rgb(143, 207, 143); font-family: unset; font-size: x-large;"> LOG IN</strong></h5></div>
+      <div class="card-body">
+        <form #loginform='ngForm' (ngSubmit)='postLogin(loginform)'>
+        <div class="form-group">
+          <div class="form-group">
+            <label for="email float-left">Email: </label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email" #email='ngModel' ngModel pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" required>
+            <div *ngIf='email.invalid && email.touched'>
+              <div class="alert alert-danger" *ngIf='email.errors.required'>
+                <small class="font-italic font-weight-normal">This field is mandatory</small>
+              </div>
+              <div class="alert alert-danger" *ngIf='email.errors.pattern'>
+                <small class="font-italic font-weight-normal">Please enter valid email id (Ex- mark123@gmail.com)</small>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password: <i class="fa fa-key icon"></i></label>
+            <div class="input-group mb-3">
+              <input [type]="passwordType" #password='ngModel' pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" ngModel name="password" id="password" class="form-control" 
+              required placeholder="enter password">
+              <div class="input-group-append">
+                  <span class="input-group-text" (click)=showPassword()>
+                      <i [class]="iconClass"></i>
+                  </span>
+              </div>
+          </div>
+            <div *ngIf='password.invalid && password.touched'>
+              <div class="alert alert-danger" *ngIf='password.errors.required'>
+                <small class="font-italic font-weight-normal">This field is mandatory</small>
+              </div>
+              <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                <small class="font-italic font-weight-normal">Invalid password entered</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-center text-muted mt-5"style="background-color: transparent">
+          <button [disabled]="loginform.form.invalid" class="btn btn-primary" type="submit" class="btn btn-primary" style="background-color:rgb(71, 71, 138);">Sign in</button>
+        </div>
+     <div><a routerLink="/forgotpassword"><small class="font-italic font-weight-normal offset-4" style="font-size:small;">forgot password?</small></a></div>
+      </form>
+      
+    </div>
+      
+    </div>
+  </div>
+  </div>
+</div>

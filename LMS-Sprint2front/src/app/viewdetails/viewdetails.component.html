@@ -1,0 +1,36 @@
+
+
+
+
+<!-- <div>{{details.phone}}</div>
+<div>{{details.userid}}</div>
+<div>{{details.email}}</div>
+<div>{{details.password}}</div> -->
+
+<div class="card-group">
+<div class="card col-md-4 offset-2 mt-1 border-0">
+  <div class="card-body">
+    <h2 class="card-title text-dark text-center"><strong style="color:rgb(71, 71, 138);">Hello {{details.fullname}} !!!</strong></h2>
+    <img class="card-img col-md-10 offset-1" src="https://cdn.pixabay.com/photo/2014/04/02/10/54/person-304893__340.png" height="300" alt="Card image cap">
+    <h3 class="card-text mt-4 font-weight-bold text-center">{{details.fullname}}</h3>
+  </div>
+</div>
+<div class="card col-md-5 mt-5 border-0">
+    <div class="card-body">
+        <h3 class="card-text "><strong>User Id: &nbsp;</strong> {{details.userid}}</h3>
+        <h3 class="card-text "><strong>Email: &nbsp;</strong> {{details.email}}</h3>
+      <h5 class="card-title text-dark "><h3><strong>Contact: &nbsp;</strong> {{details.phone}}</h3></h5>
+      <h3 class="card-text "><strong>Age: &nbsp;</strong> {{details.age}}</h3>
+      <h3 class="card-text "><strong>Address: &nbsp;</strong> {{details.address}}<</h3>
+      <h3 class="card-text"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{details.city}}, &nbsp; {{details.state}} - &nbsp; {{details.pincode}}</h3>
+      <!-- <h3 class="card-text "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{details.state}}</h3>
+      <h3 class="card-text "> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{details.pincode}}</h3> -->
+        <br><br><br>
+        <a class="text-right ml-auto p-2" routerLink="/editprofile">
+          <div class="btn text-b" style="color: rgb(129, 196, 129); background-color: rgb(71, 71, 138);"><strong>Edit Profile</strong></div>
+        </a>
+    </div>
+  </div>
+  
+</div>
+

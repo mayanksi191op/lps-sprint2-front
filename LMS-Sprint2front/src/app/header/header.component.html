@@ -1,0 +1,116 @@
+<!-- Image and text -->
+<!-- <nav class="navbar navbar-light" style="background-image: url(https://image.shutterstock.com/image-photo/crumpled-tissue-paper-background-texture-600w-215618932.jpg);"> -->
+  <nav class="navbar navbar-light" style="background-color: rgb(44, 44, 42);">
+  <a class="navbar-brand mx-auto navbar-expand-sm py-0" href="#">
+    <img src="assets/clipart1446878.png" width="50" class="d-inline-block align-top" alt="image">
+    <a class="navbar-brand text-dark font-italic" routerLink="#"> <em><h1 class="font-italic" style="color: rgb(94, 94, 182);"><strong>&nbsp; LOANEZA</strong>.com</h1></em></a>
+  </a>
+
+ 
+</nav>
+<!-- <div class="container"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(129, 196, 129);">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+     
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <!-- <a class="navbar-brand text-dark" href="#"> <em><img src="assets/loanlogo.png" alt="image" width="50"></em></a>
+          <a class="navbar-brand text-dark font-italic" href="#"> <em><h2 style="color: rgb(71, 71, 138);"><strong>LOANEZA</strong>.com</h2></em></a> -->
+          <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link text-dark" routerLink="/home"><h3><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  HOME &nbsp; &nbsp; </strong></h3> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" *ngIf='!login.isLogged()'>
+                <a class="nav-link text-dark" routerLink="/loanprograms"><h3><strong>&nbsp; Loan Programs &nbsp; &nbsp; </strong></h3></a>
+              </li>
+               <!-- <li class="nav-item" *ngIf='login.isCustomer()'>
+                <a class="nav-link text-dark" routerLink="/changepassword"><h3><strong>&nbsp; Change Password</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='login.isCustomer()'>
+                <a class="nav-link text-dark" routerLink="/viewdetails"><h3><strong>&nbsp; User Details</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='login.isCustomer()'>
+                <a class="nav-link text-dark" routerLink="/applicationstatus"><h3><strong>&nbsp; Applications Status</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='login.isCustomer()'>
+                <a class="nav-link text-dark" routerLink="/makeloan"><h3><strong>&nbsp; Make Loan</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='login.isAdmin()'>
+                <a class="nav-link text-dark" routerLink="/addclient"><h3><strong>&nbsp; Add Clients</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='login.isAdmin()'>
+                <a class="nav-link text-dark" routerLink="/viewclient"><h3><strong>&nbsp; View Clients</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='login.isAdmin()'>
+                <a class="nav-link text-dark" routerLink="/crudloan"><h3><strong>&nbsp; CRUD Loan</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='login.isAdmin()'>
+                <a class="nav-link text-dark" routerLink="/addloan"><h3><strong>&nbsp; Add Loan</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='login.isLAD()'>
+                <a class="nav-link text-dark" routerLink="/selectapplication"><h3><strong>&nbsp; Select App</strong></h3></a>
+              </li>
+              <li class="nav-item" *ngIf='!login.isLogged()'>
+                <a class="nav-link text-dark" routerLink="/applyregister"><h3><strong>&nbsp; Apply Loan?</strong></h3></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark" href="/viewapplications"><h3><strong>&nbsp; View Applications</strong></h3></a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link text-dark" routerLink="aboutus"><h3><strong>&nbsp; ABOUT US &nbsp; &nbsp; </strong></h3></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link text-dark" routerLink="contact"><h3><strong>&nbsp; CONTACT &nbsp; &nbsp; </strong></h3></a>
+                </li>
+          </ul>
+          
+          <form class="form-inline my-lg-0" *ngIf='!login.isLogged()'>
+             <a routerLink="/login">
+              
+              <div class="btn text-b" style="color: rgb(129, 196, 129); background-color: rgb(71, 71, 138);"><strong>LOGIN</strong></div>
+            </a>
+          </form>
+          <form class="form-inline my-lg-0" *ngIf='login.isLogged()'>
+            <a (click)='login.logout()'>
+             
+             <div class="btn text-b" style="color: rgb(129, 196, 129); background-color: rgb(71, 71, 138);"><strong>LOGOUT</strong></div>
+           </a>
+         </form>
+        </div>
+      </nav>
+
+      
+    <!-- </div> -->
+
+    <div class="sidenav" *ngIf = 'login.isCustomer()'>
+      <a routerLink="/viewdetails"><strong>My Profile</strong></a><br>
+      <a routerLink="/loanprograms"><strong>Loan Programs</strong></a><br>
+      <a routerLink="/makeloan"><strong>Make Loan</strong></a><br>
+      <a routerLink="/applicationstatus"><strong>Applications Status</strong></a><br>
+      <a routerLink="/changepassword"><strong>Change Password</strong></a>
+      
+    </div>
+
+    <div class="sidenav" *ngIf = 'login.isLAD()'>
+      <a routerLink="/viewdetails"><strong>My Profile</strong></a><br>
+      <a routerLink="/loanprograms"><strong>Loan Programs</strong></a><br>
+      <a routerLink="/selectapplication"><strong>Loan Applications</strong></a><br>
+      <a routerLink="/requestedapplications"><strong>Approve/Reject Forms</strong></a><br>
+      <a routerLink="/changepassword"><strong>Change Password</strong></a>
+    </div>
+
+    <div class="sidenav" *ngIf = 'login.isAdmin()'>
+      <a routerLink="/loanprograms"><strong>Loan Programs</strong></a><br>
+      <a routerLink="/addloan"><strong>Add Loan Programs</strong></a><br>
+      <a routerLink="/crudloan"><strong>Edit Loan Programs</strong></a><br>
+      <a routerLink="/selectapplication"><strong>Loan Applications</strong></a><br>
+      <a routerLink="/viewclient"><strong>View Clients</strong></a><br>
+      <a routerLink="/addclient"><strong>Add Clients</strong></a><br>
+    </div>
+    
+
+    
+    
+    

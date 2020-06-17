@@ -1,0 +1,71 @@
+
+<div class="col-md-9 offset-md-2 mt-5">
+  <div class="offset-5"><h2 class="font font-weight-bolder">LOAN PROGRAMS</h2></div>
+  <div class="form-row">
+    <div class="row" style="padding-left: 60px;">
+      <h4><strong>Search By:</strong> &nbsp;</h4>
+  </div>
+  <div class="row" style="padding-left: 30px;">
+    <select class="form-control" name="" id="" [(ngModel)]="searchBy">
+      <option value="loanname">Loan Type</option>
+      <option value="interestrates">Interest Rate</option>
+      <option value="validage">Valid Age</option>
+      <option value="maxtenure">Max Tenure Peroid</option>
+    </select>
+    </div>
+    <input type="search" class="form-control col-md-3 offset-1"  placeholder="Search here..." [(ngModel)]="searchValue">  
+    <div class="row offset-1">
+      <h4><strong>Sort By:</strong> &nbsp;</h4>
+      <div class="form-group">
+        <select name="" id="" class="form-control" [(ngModel)]="fieldname" (change)="getSortedData()">
+          <option value="loanname">loanname</option>
+          <option value="interestrates">interestrates</option>
+          <option value="maxtenure">maxtenure</option>
+        </select>
+      </div>
+    </div>  
+  </div> 
+
+      <div class="card" style="border: 0ch;"> 
+        <div class="" style="border-color: aquamarine;">
+            <div class="col-md-4 mt-2 float-left" *ngFor = "let loan of pageLoans | searchLoan: searchValue: searchBy">
+              <div class="card">
+                <div class="card-body" style="background-color: rgb(129, 196, 129);">
+                  <h2 class="card-title" style="font-weight: bolder; color: rgb(63, 63, 146);">{{loan.loanname}}</h2>
+                  <div class="mt-4">
+                  <h4>Valid age: {{loan.validage}} years</h4>
+                  <h4>Interest Rates: {{loan.interestrates}}%</h4>
+                  <h4>Maximum Tenure Period: {{loan.maxtenure}} years</h4>
+                  <div class="container mt-5">
+                    <div class="row">
+                      <div class="col-sm">
+                        <h4>
+                          <div class="btn" style="color: rgb(129, 196, 129); background-color: rgb(71, 71, 138);" (click)='selectLoan(loan)'><strong>Update</strong></div>  
+                        </h4>
+                      </div>
+                      <div class="col-sm">
+                        <h4>
+                          <div class="btn" style="color: rgb(129, 196, 129); background-color: rgb(71, 71, 138);" (click)='deleteLoan(loan)'><strong>Delete</strong></div>
+                      </h4>
+                    </div>
+                      </div>
+                    </div>          
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="alert alert-success text-center" *ngIf = 'falsemessage'>{{falsemessage}}</div>
+            <div class="alert alert-danger text-center" *ngIf = 'truemessage'>{{truemessage}}</div>
+
+            <div class="card-footer" style="border: 0ch; background-color: transparent;">
+              <mat-paginator [length]="totalitems"
+                      [pageSize]="itemsPerPage"
+                      [pageSizeOptions]="[3, 6, 12, 25, 100]" 
+                      (page) = "getNextPageItems($event)">
+              </mat-paginator>
+            </div>
+         
+
+</div>
+<div class="mt-4"></div>

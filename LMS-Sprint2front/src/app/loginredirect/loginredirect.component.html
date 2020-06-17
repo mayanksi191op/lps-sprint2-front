@@ -1,0 +1,39 @@
+<div class="mx-auto col-md-4 mt-5" *ngIf='role === "ROLE_ADMIN"'>
+    <br>
+    <h1 class="font-weight-bold">WELCOME &nbsp; {{details.fullname}} &nbsp; (ADMIN)</h1>
+    <p class="font-weight-medium" style="font-size: larger;">As an admin you are responsible for:-<br><br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Maintaining Loan Programs. <br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Add New Loan Programs.<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Updating Loan Programs.<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Delete Loan Programs.<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - View Clients (Loan Approval Department Team)<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Delete Clients<br>
+    </p>
+</div>
+
+<div class="mx-auto col-md-4 mt-5" *ngIf='role === "ROLE_CUSTOMER"'>
+    <br>
+    <h1 class="font-weight-bold">WELCOME &nbsp; {{details.fullname}} &nbsp; (CUSTOMER)</h1>
+    <p class="font-weight-medium" style="font-size: larger;">As an admin you are responsible for:-<br><br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Maintaining Loan Programs. <br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Add New Loan Programs.<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Updating Loan Programs.<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Delete Loan Programs.<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - View Clients (Loan Approval Department Team)<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; - Delete Clients<br>
+    </p>
+</div>
+
+<div class="mx-auto col-md-5 offset-3 mt-5" *ngIf='role === "ROLE_LAD"'>
+    <br>
+    <h1 class="font-weight-bold">WELCOME &nbsp; {{details.fullname}} &nbsp; (LAD Team)</h1>
+    <p class="font-weight-medium" style="font-size: larger;">As an admin you are responsible for:-<br><br>
+           &nbsp; &nbsp; &nbsp; &nbsp; -  Processing all the loan applications. <br>
+           &nbsp; &nbsp; &nbsp; &nbsp; -  Loan applications have 3 different categories:-.<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- Requested Applications<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- Approved Applications<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- Rejected Applications<br>
+           &nbsp; &nbsp; &nbsp; &nbsp; -  LAD Team is responsible for Approving and <br>
+           &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Rejecting the Requested applications after the interview.<br>
+    </p>
+</div>

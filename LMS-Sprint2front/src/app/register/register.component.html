@@ -1,0 +1,177 @@
+<div class="alert alert-success"  *ngIf = 'falsemessage'>{{falsemessage}}</div>
+<div class="alert alert-danger"  *ngIf = 'truemessage'>{{truemessage}}</div>
+<div class="container card col-md-5 offset-md-4 mt-5" style="background-color:rgb(241, 244, 246);">
+    <div class="card-header text-center font-weight-bold mt-4" style="background-color: rgb(134, 204, 134); color: rgb(89, 96, 104);">Register</div>
+    <form #adduserform='ngForm' (ngSubmit)='postClient(adduserform)'>
+       
+        <div class="form-group mt-5">
+            <label for="email float-left">Email: </label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email" #email='ngModel' ngModel pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" required>
+            <div *ngIf='email.invalid && email.touched'>
+              <div class="alert alert-danger" *ngIf='email.errors.required'>
+                <small class="font-italic font-weight-normal">This field is mandatory</small>
+              </div>
+              <div class="alert alert-danger" *ngIf='email.errors.pattern'>
+                <small class="font-italic font-weight-normal">Please enter valid email id (Ex- mark123@gmail.com)</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password: </label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" #password='ngModel' ngModel pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" required>
+            <div *ngIf='password.invalid && password.touched'>
+              <div class="alert alert-danger" *ngIf='password.errors.required'>
+                <small class="font-italic font-weight-normal">This field is mandatory</small>
+              </div>
+              <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                <small class="font-italic font-weight-normal">Please enter minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</small>
+              </div>
+            </div>
+          </div>
+
+        <div class="form-group">
+            <label for="fullname">Fullname:</label>
+            <input type="text" class="form-control" name="fullname" id="fullname" pattern="[a-z A-Z]{3,20}" required placeholder="Fullname" #fullname='ngModel' ngModel>
+            <div *ngIf='fullname.invalid && fullname.touched'>
+              <div class="alert alert-danger" *ngIf='fullname.errors.required'>
+                <small class="font-italic font-weight-normal"> This field is mandatory.</small> 
+              </div>
+              <div class="alert alert-danger" *ngIf='fullname.errors.pattern'>
+                <small class="font-italic font-weight-normal"> Please enter letters only.</small> 
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bankid">Bank Id:*</label>
+          <input type="bankid" name="bankid" class="form-control" id="bankid" placeholder="Bank Id" pattern="[a-zA-Z0-9]{5,12}" required #bankid='ngModel' ngModel>
+          <div *ngIf='bankid.invalid && bankid.touched'>
+            <div class="alert alert-danger" *ngIf='bankid.errors.required'>
+              <small class="font-italic font-weight-normal"> This field is mandatory.</small> 
+            </div>
+            <div class="alert alert-danger" *ngIf='bankid.errors.pattern'>
+              <small class="font-italic font-weight-normal"> Please enter valid BankId.</small> 
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-5">
+              <label for="phone">Phone:*</label>
+              <input type="number" name="phone" class="form-control" id="phone" placeholder="+91" pattern="[1-9][0-9]{9,9}" required #phone='ngModel' ngModel>
+              <div *ngIf='phone.invalid && phone.touched'>
+                <div class="alert alert-danger" *ngIf='phone.errors.required'>
+                  <small class="font-italic font-weight-normal"> This field is mandatory.</small> 
+                </div>
+                <div class="alert alert-danger" *ngIf='phone.errors.pattern'>
+                  <small class="font-italic font-weight-normal"> Please write 10 digit phone number.</small> 
+                  
+                </div>
+              </div>
+            </div>
+        <div class="form-group col-md-5 offset-md-2">
+          <label for="age">Age:*</label>
+          <input type="number" name="age" class="form-control" id="age" pattern="^0*(1[89]|[2-6][0-9]|70)$" required placeholder="+Age" #age='ngModel' ngModel>
+          <div *ngIf='age.invalid && age.touched'>
+            <div class="alert alert-danger" *ngIf='age.errors.required'>
+              <small class="font-italic font-weight-normal"> This field is mandatory.</small> 
+            </div>
+            <div class="alert alert-danger" *ngIf='age.errors.pattern'>
+              <small class="font-italic font-weight-normal"> Write age between 18-70.</small> 
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="form-group mt-4">
+          <label for="address">Permanent Address:*</label>
+          <textarea class="form-control" name="address" id="address" required rows="3" #address='ngModel' ngModel></textarea>
+          <div *ngIf='address.invalid && address.touched'>
+            <div class="alert alert-danger" *ngIf='address.errors.required'>
+              <small class="font-italic font-weight-normal"> This field is mandatory.</small> 
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="city">City:*</label>
+            <input type="text" name="city" class="form-control" pattern="[a-z A-Z]{3,12}" required id="city" #city='ngModel' ngModel>
+            <div *ngIf='city.invalid && city.touched'>
+              <div class="alert alert-danger" *ngIf='city.errors.required'>
+                <small class="font-italic font-weight-normal"> This field is mandatory.</small> 
+              </div>
+              <div class="alert alert-danger" *ngIf='city.errors.pattern'>
+                <small class="font-italic font-weight-normal"> Please write letters only.</small> 
+                
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="state">State:</label>
+            <select id="state" name="state" class="form-control" required #state='ngModel' ngModel>
+                <option selected hidden disabled>Select State...</option>
+                <option value=”AndhraPradesh”>Andhra Pradesh</option>
+                <option value=”AndamanandNicobarIslands”>Andaman and Nicobar Islands</option>
+                <option value=”ArunachalPradesh”>Arunachal Pradesh</option>
+                <option value=”Assam”>Assam</option>
+                <option value=”Bihar”>Bihar</option>
+                <option value=”Chandigarh”>Chandigarh</option>
+                <option value=”Chhattisgarh”>Chhattisgarh</option>
+                <option value=”DadarandNagarHaveli”>Dadar and Nagar Haveli</option>
+                <option value=”DamanandDiu”>Daman and Diu</option>
+                <option value=”Delhi”>Delhi</option>
+                <option value=”Lakshadweep”>Lakshadweep</option>
+                <option value=”Puducherry”>Puducherry</option>
+                <option value=”Goa”>Goa</option>
+                <option value=”Gujarat”>Gujarat</option>
+                <option value=”Haryana”>Haryana</option>
+                <option value=”HimachalPradesh”>Himachal Pradesh</option>
+                <option value=”JammuandKashmir”>Jammu and Kashmir</option>
+                <option value=”Jharkhand”>Jharkhand</option>
+                <option value=”Karnataka”>Karnataka</option>
+                <option value=”Kerala”>Kerala</option>
+                <option value=”MadhyaPradesh>Madhya Pradesh</option>
+                <option value=”Maharashtra”>Maharashtra</option>
+                <option value=”Manipur”>Manipur</option>
+                <option value=”Meghalaya”>Meghalaya</option>
+                <option value=”Mizoram”>Mizoram</option>
+                <option value=”Nagaland”>Nagaland</option>
+                <option value=”Odisha”>Odisha</option>
+                <option value=”Punjab”>Punjab</option>
+                <option value=”Rajasthan”>Rajasthan</option>
+                <option value=”Sikkim”>Sikkim</option>
+                <option value=”TamilNade>Tamil Nadu</option>
+                <option value=”Telangana”>Telangana</option>
+                <option value=”Tripura”>Tripura</option>
+                <option value=”UttarPradesh>Uttar Pradesh</option>
+                <option value=”Uttarakhand”>Uttarakhand</option>
+                <option value=”WestBengal>West Bengal</option>
+            </select>
+            <div *ngIf='state.invalid && state.touched'>
+              <div class="alert alert-danger" *ngIf='state.errors.required'>
+                <small class="font-italic font-weight-normal"> This field is mandatory.</small> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pincode">Pincode:*</label>
+          <input type="text" name="pincode" class="form-control col-md-4" pattern="[0-9]{6,6}" #pincode='ngModel' ngModel id="pincode">
+          <div *ngIf='pincode.invalid && pincode.touched'>
+            <div class="alert alert-danger" *ngIf='pincode.errors.required'>
+              <small class="font-italic font-weight-normal"> This field is mandatory.</small> 
+            </div>
+            <div class="alert alert-danger" *ngIf='pincode.errors.pattern'>
+              <small class="font-italic font-weight-normal"> Please write 6 digit pin containing numbers only.</small> 
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+        <input type="hidden" name="role" class="form-control col-md-4" #role='ngModel' ngModel id="role" value="LAD">
+      </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn font-weight-medium"  style="background-color:rgb(139, 164, 189);">Next---></button>
+        </div>
+      </form>
+</div>
+<div class="mt-4"></div>

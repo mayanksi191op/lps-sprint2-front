@@ -1,0 +1,61 @@
+<!-- <div class="alert alert-success"  *ngIf = 'falsemessage'>{{falsemessage}}</div>
+<div class="alert alert-danger"  *ngIf = 'truemessage'>{{truemessage}}</div> -->
+<div class="container mt-4">
+    <div class="offset-5"><h2 class="font font-weight-bolder">APPLICATION STATUS</h2></div>
+
+      <div class="form-row">
+        <div class="row" style="padding-left: 150px;">
+          <h4><strong>Search By:</strong> &nbsp;</h4>
+      </div>
+      <div class="row" style="padding-left: 30px;">
+        <select class="form-control" name="" id="" [(ngModel)]="searchBy">
+          <option value="status">Status</option>
+          <option value="phone">Phone number</option>
+          <option value="loanid">Loan Id</option>
+          <option value="loantype">Loan Type</option>
+        </select>
+        </div>
+        <input type="search" class="form-control col-md-3 offset-1"  placeholder="Search here..." [(ngModel)]="searchValue">  
+      </div> 
+      <table class="table table-bordered table-hover mt-3" style="margin-left: 70px; ">
+        <thead class="thead" style="background-color: rgb(129, 196, 129);">
+          <tr>
+            <th scope="col">loanid</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Age</th>   
+            <th scope="col">Occupation</th>       
+            <th scope="col">Monthly Income(Rs)</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Loan Type</th>
+            <th scope="col">Loan Amount</th>
+            <th scope="col">Tenure (Years)</th>
+            <th scope="col">Status</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+         
+            <ng-container *ngFor = 'let application of user.applyloans | searchLoan: searchValue: searchBy'>
+              
+          <tr>
+            <td>{{application.loanid}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.age}}</td>
+            <td>{{application.occupation}}</td>
+            <td>{{application.monthlyincome}}</td>
+            <td>{{application.city}}</td>
+            <td>{{application.state}}</td>
+            <td>{{application.loantype}}</td>
+            <td>{{application.loanamount}}</td>
+            <td>{{application.loantenure}}</td>
+            <td>{{application.status}}</td>
+          </tr>
+              </ng-container>
+            
+     
+        </tbody>
+      </table>
+    </div>
+      
+      

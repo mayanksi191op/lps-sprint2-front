@@ -1,0 +1,77 @@
+<!-- <div class="alert alert-success"  *ngIf = 'falsemessage'>{{falsemessage}}</div>
+<div class="alert alert-danger"  *ngIf = 'truemessage'>{{truemessage}}</div> -->
+<div class="container mt-4">
+  <div class="offset-5"><h2 class="font font-weight-bolder">REJECTED FORMS</h2></div>
+  <div class="form-row">
+    <div class="row" style="padding-left: 150px;">
+      <h4><strong>Search By:</strong> &nbsp;</h4>
+  </div>
+  <div class="row" style="padding-left: 30px;">
+    <select class="form-control" name="" id="" [(ngModel)]="searchBy">
+      <option value="fullname">Applicant's Name</option>
+      <option value="age">Age</option>
+      <option value="loanid">Loan Id</option>
+      <option value="loantype">Loan Type</option>
+    </select>
+    </div>
+    <input type="search" class="form-control col-md-3 offset-1"  placeholder="Search here..." [(ngModel)]="searchValue">  
+    <div class="row offset-1">
+      <h4><strong>Sort By:</strong> &nbsp;</h4>
+      <div class="form-group">
+        <select name="" id="" class="form-control" [(ngModel)]="fieldname" (change)="getSortedData()">
+          <option value="fullname">Name</option>
+          <option value="age">Age</option>
+          <option value="loanid">Loan Id</option>
+        </select>
+      </div>
+    </div>
+    <h3 style="padding-left: 80px; text-decoration: none;"><a routerLink="/selectapplication">GoBack</a></h3>   
+  </div> 
+<table class="table table-bordered table-hover" style="margin-left: 70px; ">
+    <thead class="thead" style="background-color: rgb(129, 196, 129);">
+      <tr>
+        <th scope="col">loanid</th>
+        <th scope="col">Applicant Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Age</th>   
+        <th scope="col">Occupation</th>       
+        <th scope="col">Monthly Income(Rs)</th>
+        <th scope="col">city</th>
+        <th scope="col">State</th>
+        <th scope="col">Loan Type</th>
+        <th scope="col">Loan Amount(Rs)</th>
+        <th scope="col">Tenure (Years)</th>
+        <th scope="col">Status</th> 
+      </tr>
+    </thead>
+    <tbody>
+        
+      <tr *ngFor = 'let applications of pageLoans | searchLoan: searchValue: searchBy'>
+        <td>{{applications.loanid}}</td>
+        <td>{{applications.fullname}}</td>
+        <td>{{applications.mobile}}</td>
+        <td>{{applications.age}}</td>
+        <td>{{applications.occupation}}</td>
+        <td>{{applications.monthlyincome}}</td>
+        <td>{{applications.city}}</td>
+        <td>{{applications.state}}</td>
+        <td>{{applications.loantype}}</td>
+        <td>{{applications.loanamount}}</td>
+        <td>{{applications.loantenure}}</td>
+        <td>{{applications.status}}</td>
+      </tr>
+          
+    
+  
+    </tbody>
+  </table>
+
+
+  <mat-paginator [length]="totalitems"
+  [pageSize]="itemsPerPage"
+  [pageSizeOptions]="[3, 6, 12, 25, 100]" 
+  (page) = "getNextPageItems($event)">
+</mat-paginator>
+</div>
+  
+  
